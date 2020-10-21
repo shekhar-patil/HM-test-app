@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: [:registrations]
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
@@ -13,10 +13,6 @@ Rails.application.routes.draw do
         devise_scope :user do
           post "sign_up", to: "registrations#create"
         end
-      end
-
-      devise_scope :user do
-        post "sign_in", to: "sessions#create"
       end
     end
   end
