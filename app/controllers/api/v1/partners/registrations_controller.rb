@@ -2,6 +2,8 @@ class Api::V1::Partners::RegistrationsController < Devise::SessionsController
   respond_to :json
   def create
     user = User.new user_params
+    user.role = 'staff'
+    user.department = 'partner'
     if user.save
       render json: {
         messages: "Sign Up Successfully",
