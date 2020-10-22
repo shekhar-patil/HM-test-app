@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :hotels
       resources :users
     end
   end

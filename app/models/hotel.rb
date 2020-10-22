@@ -1,3 +1,5 @@
 class Hotel < ApplicationRecord
-  belongs_to :admin, class_name: 'User', optional: true
+  has_many :user_hotels
+  has_many :users, through: :user_hotels
+  has_many :rooms
 end
