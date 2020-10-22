@@ -15,7 +15,13 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :hotels
+      resources :hotels do
+        resources :rooms
+      end
+
+      post 'reservations/create'
+      get 'reservations/show'
+
       resources :users
     end
   end
